@@ -5,6 +5,7 @@
       v-for="button in buttons" 
       :symbol="button"
       :key="button"
+      @click="onClick"
     ></FunctionButton>
 
   </div>
@@ -23,7 +24,8 @@ export default {
   },
   data: function() {
     return {
-      number: 111,
+      number: '0',
+      current: '',
       buttons: [
         '(',')', '%', 'AC',
         '7', '8', '9', '÷',
@@ -31,6 +33,17 @@ export default {
         '1', '2', '3', '-',
         '0', '.', '=', '+'
         ]
+    }
+  },
+  methods: {
+    onClick: function(symbol) {
+      this.number = this.number === '0'? symbol: this.number + symbol;
+      if(isNaN(symbol)) {
+        console.log('no');
+      }
+      else {
+        console.log('yes');
+      }
     }
   }
 }

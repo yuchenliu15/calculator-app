@@ -1,11 +1,16 @@
 <template>
-  <button class="button">{{symbol}}</button>
+  <button class="button" @click="onClick">{{symbol}}</button>
 </template>
 
 <script>
 export default {
   props: {
     symbol: String
+  },
+  methods: {
+      onClick: function() {
+          this.$emit('click', this.symbol);
+      }
   }
 };
 </script>
