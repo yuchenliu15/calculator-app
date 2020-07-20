@@ -25,7 +25,6 @@ export default {
   data: function() {
     return {
       number: '0',
-      current: '',
       buttons: [
         '(',')', '%', 'AC',
         '7', '8', '9', '÷',
@@ -37,13 +36,8 @@ export default {
   },
   methods: {
     onClick: function(symbol) {
-      this.number = this.number === '0'? symbol: this.number + symbol;
-      if(isNaN(symbol)) {
-        console.log('no');
-      }
-      else {
-        console.log('yes');
-      }
+
+      console.log(symbol);
     }
   }
 }
