@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <NumberDisplay :number="number" ></NumberDisplay>
+    <FunctionButton :symbol="'7'"></FunctionButton>
   </div>
 </template>
 
 <script>
 
 import NumberDisplay from './components/NumberDisplay';
+import FunctionButton from './components/FunctionButton';
 
 export default {
   name: 'App',
   components: {
-    NumberDisplay
+    NumberDisplay,
+    FunctionButton
   },
   data: function() {
     return {
