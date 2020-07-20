@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    hi
+    <NumberDisplay :number="number" ></NumberDisplay>
   </div>
 </template>
 
 <script>
 
+import NumberDisplay from './components/NumberDisplay';
+
 export default {
   name: 'App',
   components: {
+    NumberDisplay
+  },
+  data: function() {
+    return {
+      number: 111
+    }
   }
 }
 </script>
