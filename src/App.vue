@@ -22,9 +22,16 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/roboto.ttf');
+}
 #app {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   width: 350px;
   height: 650px;
+  font-family: MyFont;
   box-shadow: 0 0 5px grey;
   border-radius: 20px;
   margin: auto;
