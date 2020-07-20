@@ -15,7 +15,7 @@ export default {
 <style scoped>
 .number-container {
   position: relative;
-  background-color: yellow;
+  background-color: #dfe4ea;
   height: 150px;
   border-radius: 20px;
   grid-column: 1/5;

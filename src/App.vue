@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <NumberDisplay :number="number" ></NumberDisplay>
-    <FunctionButton :symbol="'7'"></FunctionButton>
+    <FunctionButton 
+      v-for="button in buttons" 
+      :symbol="button"
+      :key="button"
+    ></FunctionButton>
+
   </div>
 </template>
 
@@ -18,7 +23,14 @@ export default {
   },
   data: function() {
     return {
-      number: 111
+      number: 111,
+      buttons: [
+        '(',')', '%', 'AC',
+        '7', '8', '9', '÷',
+        '4', '5', '6', 'x',
+        '1', '2', '3', '-',
+        '0', '.', '=', '+'
+        ]
     }
   }
 }
@@ -36,6 +48,7 @@ export default {
   height: 650px;
   font-family: MyFont;
   box-shadow: 0 0 5px grey;
+  color: #2e86de;
   border-radius: 20px;
   margin: auto;
   margin-top: 80px;

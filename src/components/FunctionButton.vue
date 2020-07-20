@@ -17,13 +17,18 @@ export default {
   height: 70px;
   border: none;
   color: #2e86de;
+  background-color: white;
   border: solid 1px #2e86de;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 30px;
   border-radius: 50%;
   margin: auto;
+}
+
+.button:hover {
+  background-color: #dfe4ea;
+  cursor: pointer;
 }
 </style>
