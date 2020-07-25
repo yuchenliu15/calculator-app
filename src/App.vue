@@ -9,7 +9,7 @@
 import NumberDisplay from "./components/NumberDisplay";
 import FunctionButton from "./components/FunctionButton";
 
-const reg = /[+-/%x]/;
+const reg = RegExp('[+-/%x]');
 
 export default {
   name: "App",
@@ -87,8 +87,8 @@ export default {
       const result = [];
       let string = '';
       for(let i = 0; i < input.length; i++) {
-        const current = input.strAt(i);
-        if(current.test(reg)) {
+        const current = input.charAt(i);
+        if(reg.test(current)) {
           result.push(string);
           result.push(current);
           string = '';
@@ -102,11 +102,10 @@ export default {
         }
       }
       return result;
-    }
+    },
+
   },
-  test: function() {
-    return 1;
-  }
+
 };
 </script>
 
