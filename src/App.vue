@@ -89,13 +89,24 @@ export default {
     parseInput: function(input) {
       const result = [];
       let string = '';
+      let needParentheses = false;
       for(let i = 0; i < input.length; i++) {
         const current = input.charAt(i);
         if(reg.test(current)) {
           if(string !== '')
             result.push(string);
+          if(needParentheses && current !== '(') {
+            needParentheses = false;
+            result.push(')');
+          }
+          else {
+            needParentheses = false;
+          }
+          if(RegExp('[/%x]').test(current))
+            needParentheses = true;
           result.push(current);
           string = '';
+
         }
         else if(i === input.length - 1) {
           string += current;
