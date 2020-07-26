@@ -1,4 +1,4 @@
-import {shallowMount} from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import App from '../../src/App.vue';
 
 const wrapper = shallowMount(App);
@@ -13,6 +13,7 @@ describe('App component', () => {
         expect(parseInput('11+211+1-12'))
             .toMatchObject(['11', '+', '211', '+', '1', '-', '12']);
         expect(parseInput('11%333')).toMatchObject(['11', '%', '333']);
-
+        expect(parseInput('(9+10)x6'))
+            .toMatchObject(['(', '9', '+', '10', ')', 'x', '6']);
     });
 })

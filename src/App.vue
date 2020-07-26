@@ -9,7 +9,7 @@
 import NumberDisplay from "./components/NumberDisplay";
 import FunctionButton from "./components/FunctionButton";
 
-const reg = RegExp('[+-/%x]');
+const reg = RegExp('[+-/%x()]');
 
 export default {
   name: "App",
@@ -47,8 +47,7 @@ export default {
       const validOperators = ["+", "-", "%", "x", "/"];
       const valueStack = [];
       const operatorStack = [];
-      for (const char of input.split(/[+-]/)) {
-        console.log(char);
+      for (const char of this.parseInput(input)) {
         if (validOperators.includes(char)) {
           operatorStack.push(char);
         } else if (char === ")") {
@@ -59,12 +58,16 @@ export default {
         } else if (char !== "(") {
           valueStack.push(char);
         }
+        console.log(valueStack)
+        console.log(operatorStack)
+      }
+      while(operatorStack.length > 0) {
+        const second = valueStack.pop();
+        const first = valueStack.pop();
+        const operator = operatorStack.pop();
+        valueStack.push(this.getValue(first, second, operator));
       }
 
-      const second = valueStack.pop();
-      const first = valueStack.pop();
-      const operator = operatorStack.pop();
-      valueStack.push(this.getValue(first, second, operator));
       this.number = valueStack.pop().toString();
     },
     getValue(first, second, operator) {
@@ -89,7 +92,8 @@ export default {
       for(let i = 0; i < input.length; i++) {
         const current = input.charAt(i);
         if(reg.test(current)) {
-          result.push(string);
+          if(string !== '')
+            result.push(string);
           result.push(current);
           string = '';
         }
